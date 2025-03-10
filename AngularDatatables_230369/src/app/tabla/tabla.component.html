@@ -1,0 +1,41 @@
+<div class="overflow-x-auto p-4">
+    <table class="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
+      <thead>
+        <tr class="bg-gray-100 text-gray-700">
+          <th class="py-2 px-4 border-b">ID</th>
+          <th class="py-2 px-4 border-b">
+            Nombre
+            <input type="text" [(ngModel)]="filtroNombre" class="border p-1 w-full">
+          </th>
+          <th class="py-2 px-4 border-b">
+            Apellido
+            <input type="text" [(ngModel)]="filtroApellido" class="border p-1 w-full">
+          </th>
+          <th class="py-2 px-4 border-b">
+            Deporte Favorito
+            <select [(ngModel)]="filtroDeporte" class="border p-1 w-full">
+              <option value="">Todos</option>
+              <option *ngFor="let deporte of deportes" [value]="deporte">{{ deporte }}</option>
+            </select>
+          </th>
+          <th class="py-2 px-4 border-b">
+            Marca de Ropa
+            <select [(ngModel)]="filtroMarca" class="border p-1 w-full">
+              <option value="">Todas</option>
+              <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
+            </select>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnosFiltrados" class="hover:bg-gray-50">
+          <td class="py-2 px-4 border-b text-center">{{ alumno.id }}</td>
+          <td class="py-2 px-4 border-b">{{ alumno.nombre }}</td>
+          <td class="py-2 px-4 border-b">{{ alumno.apellido }}</td>
+          <td class="py-2 px-4 border-b">{{ alumno.deporte }}</td>
+          <td class="py-2 px-4 border-b">{{ alumno.marca }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
